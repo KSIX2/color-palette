@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Staatliches&display=swap');
+        body{
+            margin: 0px;
+        }
+        #optionsmenu{
+            height: 15vh;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            font-family: 'Staatliches', cursive;
+            font-size: 8vh;
+            background: black;
+            cursor: pointer;
+            color: white;
+        }
+        #space{
+            cursor: pointer;
+            height: 85vh;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+        }
+        .spacecolors{
+            font-family: 'Staatliches', cursive;
+            font-size: 5vh;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        #button{
+            font-family: 'Staatliches', cursive;
+            font-size: 5vh;
+            width: 9vw;
+            height: 7vh;
+            border: 2.5px solid white;
+        }
+        #button:hover{
+            border: 2.5px solid black;
+        }
+        a{
+            text-decoration: none;
+            color: white;
+        }
+        a, #save, #add{
+            width: 33.3vw;
+            text-align: center;
+        }
+        a:hover, #save:hover, #add:hover{
+            font-size: larger;
+        }
+    </style>
+</head>
+<body>
+    <div id="optionsmenu">
+        <a href="/home">Go back</a>
+        <div id="add">Add color</div>
+        <div id="save">Save</div>
+    </div>
+    <div id="space"></div>
+    <script>
+        let addcolor = document.querySelector("#add")
+        let space = document.querySelector("#space")
+        let saveit = document.querySelector("#save")
+        let hexa = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "A", "B", "C", "D", "E", "F"]
+        let rdmcolor, newcolor;
+        
+        addcolor.addEventListener("click", ()=>{
+            rdmcolor = "#"
+            for(var i=0; i<6; i++){
+                rdmcolor += hexa[Math.floor(Math.random()*16)]
+            }
+            
+            let btn = document.createElement("button")
+            btn.innerHTML = "Remove"
+            btn.setAttribute("id", "button")
+
+            let div = document.createElement("div")
+            div.style.background = div.innerHTML = rdmcolor;
+            div.classList.add("spacecolors")
+            div.appendChild(btn)
+            space.appendChild(div)
+        })
+
+        document.addEventListener("click", (e)=>{
+            if(e.target.id === "button"){
+                e.target.parentElement.remove()
+            }
+        })
+
+        save.addEventListener("click", ()=>{
+            let colors = []
+            for(var i=0; i<space.childElementCount; i++){
+                colors.push(space.children[i].style.background)
+            }
+            data = {colors}
+            let options = {
+                method: "POST",
+                headers:{
+                    "Content-Type": "application/json"
+                },
+                redirect: "follow",
+                body: JSON.stringify(data)
+            }
+            fetch("/colorpalAPI", options)
+                .then(result => {
+                    if(result.redirected){
+                        window.location.href = result.url
+                    }
+                })
+                .catch(err => console.log(err))
+        })
+    </script>
+</body>
+</html>

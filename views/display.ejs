@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Staatliches&display=swap');
+        body{
+            margin: 0px;
+        }
+        #goback{
+            height: 15vh;
+            background: black;
+            display: flex;
+            flex-direction: row;
+            color: white;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-size: 9vh;
+            font-family: 'Staatliches', cursive;
+            color: white;
+        }
+        #goback:hover{
+            font-size: 10vh;
+        }
+        #display{
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            height: 85vh;
+        }
+        .colors{
+            flex-grow: 1;
+            font-family: 'Staatliches', cursive;
+            font-size: 5vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <a href="/home" id="goback">Go Back</a>
+    <div id="display">
+        <%for(var i=0; i<colorpalcolors.length; i++){%>
+            <div class = "colors" style = "background: <%=colorpalcolors[i]%>"><%=colorpalcolors[i]%></div>
+            <% console.log(colorpalcolors[i]) %>
+        <%}%>
+    </div>
+</body>
+</html>

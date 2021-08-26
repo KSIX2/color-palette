@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=ZCOOL+KuaiLe&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Staatliches&display=swap');
+        body{
+            margin: 0px;
+            overflow: visible;
+            background: gold;
+        }
+        #headbar{
+            height: 15vh;
+            background: black;
+            display: flex;
+            flex-direction: row;
+            color: white;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1vw;
+        }
+        .headers{
+            width: 33.3vw;
+            text-align: center;
+            font-size: 7vh;
+            font-family: 'Staatliches', cursive;
+            cursor: pointer;
+        }
+        #palettesdisplay{
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            align-content: flex-start;
+            justify-content: center;
+            text-align: center;
+            height: 85vh;
+        }
+        #addpalette:hover, #logout:hover{
+            font-size: 9vh;
+        }
+        a{
+            text-decoration: none;
+            color: white
+        }
+        #colorpals{
+            width: 14.3vw;
+            height: 14.3vw;
+            font-size: 5vh;
+            margin: 1vw;
+            line-height: 14.3vw;
+            font-family: 'Staatliches', cursive;
+            background: linear-gradient(to right top, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.5));
+            border-radius: 30px;
+            cursor: pointer;
+            color: black;
+        }
+        #colorpals:hover{
+            font-size: 6vh;
+        }
+    </style>
+</head>
+<body>
+    <div id="headbar">
+        <a class="headers" id="addpalette" href="/whiteboard">Add Pallete</a>
+        <div class="headers">Dashboard</div>
+        <a href="/logout" class="headers" id="logout">Logout</a>
+    </div>
+    <div id="palettesdisplay">
+        <%for(var i=0; i<colorlist.length; i++){%>
+            <a href="/display/id?oid=<%=colorlist[i]%>" id="colorpals"><%= `Palette ${i+1}` %></a>
+        <%}%>
+    </div>
+    <script></script>
+</body>
+</html>

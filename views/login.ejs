@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Staatliches&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Glory:wght@300&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Rampart+One&display=swap');
+        *{
+            margin: 0px;
+        }
+
+        #container{
+            background: linear-gradient(to right bottom, #ffdd00, #fbb034 );
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        #formdiv{
+            background: linear-gradient(to right top, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.5));
+            width: 30vw;
+            height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 25px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+        }
+        form{
+            font-family: 'Staatliches', cursive;
+            width: 30vw;
+            height: 60vh;
+            text-align: center;
+        }
+        h2{
+            font-family: 'Rampart One', cursive;
+            text-align: center;
+            font-size: 4vw;
+        }
+        label{
+            font-size: 5vh;
+        }
+        input{
+            width: 25vw;
+            height: 6vh;
+            font-size: 1.5vw;
+            font-family: 'Glory', sans-serif;
+            border-radius: 10px;
+            border: 2px solid black;
+        }
+        button{
+            width: 10vw;
+            height: 7vh;
+            font-family: 'Staatliches', cursive;
+            font-size: 2vw;
+            border-radius: 30px;
+            border: 2px solid black;
+            background: white;
+            color: black;
+
+        }
+        button:hover{
+            background: black;
+            color: white;
+        }
+        a{
+            font-size: 1.4vw;
+        }
+        
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div id="formdiv">
+            <form action="/login" method="POST">
+                <h2>LOGIN</h2><br>
+                <label for = "username">Username: </label><br>
+                <input type="text" autocomplete="off" name="username" id="username"><br><br><br>
+                <label for="password">Password: </label><br>
+                <input type="password" autocomplete="off" name="password" id="password"><br><br><br>
+                <button>Log in</button><br><br>
+                <a href="/register">New User? Register here!</a>
+            </form>
+        </div>
+    </div>
+    <script>
+        console.log("Om namo narayanaya namaha")
+    </script>
+</body>
+</html>
